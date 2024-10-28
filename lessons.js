@@ -120,7 +120,7 @@ const anotherCallback = () => console.log('greeitngs')
 setTimeout(anotherCallback, 3000)
 */
 
-
+/* создание объекта и вывод с шаблонной строкой
 const person = {
     myName: 'sergei',
     surname: 'buneev',
@@ -130,11 +130,4 @@ const person = {
 const personInfo = `my name is ${person.myName} ${person.surname} and my favorite number is ${person.favoriteNumber}`
 console.log(personInfo)
 
-
-const increaseNumber = (person) => {
-    const numberUp = {...person, favoriteNumber: person.favoriteNumber +1}
-        return numberUp
-}
-
-const newNumber = increaseNumber(person)
-console.log(newNumber)
+*/
