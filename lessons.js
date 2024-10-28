@@ -107,7 +107,34 @@ const myCallBack = () => {
     console.log('hello world')
 }
 
-setTimeout(myCallBack, 3000); // вызвал для 
+setTimeout(myCallBack, 3000);  
 */
 
+/* вызов callback функции в одну строку. 
 setTimeout(() => console.log('в одну строку'), 5000)
+*/
+
+/* еще вариант вызова колбек-функции
+const anotherCallback = () => console.log('greeitngs')
+
+setTimeout(anotherCallback, 3000)
+*/
+
+
+const person = {
+    myName: 'sergei',
+    surname: 'buneev',
+    favoriteNumber: 5
+};
+
+const personInfo = `my name is ${person.myName} ${person.surname} and my favorite number is ${person.favoriteNumber}`
+console.log(personInfo)
+
+
+const increaseNumber = (person) => {
+    const numberUp = {...person, favoriteNumber: person.favoriteNumber +1}
+        return numberUp
+}
+
+const newNumber = increaseNumber(person)
+console.log(newNumber)
