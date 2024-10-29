@@ -277,3 +277,4 @@ const myArray = [true, 'abc', 10, null]
 myArray.forEach(element => {
     console.log(element)
 })
+
