@@ -131,3 +131,133 @@ const personInfo = `my name is ${person.myName} ${person.surname} and my favorit
 console.log(personInfo)
 
 */
+
+/* вспоминал про колбек
+setTimeout(() => console.log('привет мир'), 2000)
+*/
+
+/*
+const myHello = () => {
+    console.log('hello')
+}
+
+setTimeout(myHello, 2000)
+*/
+
+/* вывод длины строки
+const myString = 'robot'
+
+console.log(myString.length)
+*/
+
+/*еще вариант
+
+const myFavoriteSport = 'boxing'
+
+const stringLength = myFavoriteSport.length
+
+console.log(stringLength)
+*/
+
+/* перевод строки в апперкейс и проверка типа строка
+const anyString = 'the string'
+
+
+console.log(anyString instanceof String)
+
+console.log(typeof anyString)
+
+const toUpperCase = anyString.toUpperCase()
+
+console.log(toUpperCase)
+
+*/
+
+/* создание экземпляра string
+const myString = new String('sergei')
+
+console.log(myString instanceof String)
+
+console.log(typeof myString)
+
+const testString = 'theory'
+
+// но ведь я сразу могу получить доступ как к объекту?!
+console.log(testString.toUpperCase())
+
+*/
+
+/* замена части строки при помощи метода replace
+
+const newDay = 'Good morning'
+
+const updatedDay = newDay.replace('morning', 'Evening')
+
+console.log(updatedDay)
+
+*/
+
+/*  создание массива
+
+const myArray = [
+    myString = 'sergei',
+    myBoolean = true,
+    myNumber = 5
+]
+
+console.log(myArray[0])
+
+console.log(myArray.length)
+
+// еще вариант
+const myNewArray = [false, 17, null]
+
+console.log(myNewArray[0])
+
+*/
+
+/* замена элемента в массиве
+
+const firstArray = [true, 13, null, 'abc']
+
+console.log(firstArray)
+
+firstArray[1] = 125 // синтаксис замены элемента в массиве
+
+console.log(firstArray)
+
+*/
+
+/* перебор элементов массива с методом forEach
+
+const changeArray = ['abc', 12, null, false]
+
+changeArray.forEach((element) => {
+    console.log(element)
+});
+
+// еще вариант
+
+const myArray = ['abc', true, 200]
+
+myArray.forEach((element) => console.log(element))
+
+*/
+
+/* добавление элемента в массив при помощи push
+
+const plusArray = [12, 'abc', null]
+
+plusArray.push(11, true)
+
+console.log(plusArray)
+console.log(plusArray.length)
+
+*/
+
+const currentDate = new Date() // создание новой даты в JavaScript
+
+const currentDateInMs = currentDate.getTime()
+
+console.log(currentDateInMs)
+
