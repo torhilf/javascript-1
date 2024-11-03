@@ -255,9 +255,48 @@ console.log(plusArray.length)
 
 */
 
+/* вывод текущего времени в миллисекундах
+
 const currentDate = new Date() // создание новой даты в JavaScript
 
 const currentDateInMs = currentDate.getTime()
 
 console.log(currentDateInMs)
 
+*/
+
+
+
+// конвертация строки в число, сравнение переменных
+
+// let myVariable1 = 10
+// let myVariable2 = '5'
+
+// console.log(parseInt(myVariable2))
+// console.log(typeof parseInt(myVariable2))
+
+// второй вариант с оператором +
+
+// let myVariable1 = 10
+// let myVariable2 = '5'
+
+// console.log(+myVariable2)
+// console.log(typeof +myVariable2)
+
+
+
+
+// сравнить 2 переменных, вывести в консоль true, 
+// если значение 1 больше или равно 2
+
+// let myVariable1 = 10
+// let myVariable2 = '5'
+
+// console.log(parseInt(myVariable1) <= parseInt(myVariable2)) // логическое значение false
+
+// myVariable1 = '20';
+// myVariable2 = 100
+
+// console.log(parseInt(myVariable1) <= parseInt(myVariable2)) // true
+
+console.log(parseInt(true))
