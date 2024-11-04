@@ -27,7 +27,7 @@ console.log(mult)
 
 /* 2st lesson
 const myName = 'sergei';
-const mySurname = 'buneev';
+const mySurname = 'andreev';
 const myJob = 'developer';
 
 const myData = `my name is ${myName} ${mySurname} and i am ${myJob}`
@@ -299,4 +299,179 @@ console.log(currentDateInMs)
 
 // console.log(parseInt(myVariable1) <= parseInt(myVariable2)) // true
 
-console.log(parseInt(true))
+// остаток от деления
+
+// const myNumber1 = 10
+// const myNumber2 = 3
+
+// const result = myNumber1 % myNumber2
+
+// console.log(result)
+
+// /**
+//  * приоритетность оператора % 12 (выше чем + и _)
+//  * Ассоциативность оператора % - left-to rigth
+//  * https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_precedence
+//  */
+
+// console.log(100 % 23 % 5 % 3)
+
+// ИЛИ (||) и И (&&) операторы
+
+// console.log(3 || (true && null) || false); // <-- результат 3
+
+/** ШАГ 1
+ * выполняем (true && null)
+ * получаем null <-- оператор && возвращает первое же ложное значение выражения
+ */
+
+/** ШАГ 2
+ *  3 || null || false
+ *  3 <-- потому что оператор || возвращает первое истинное значение
+ */
+
+// console.log(true && null && 10) // <-- null, поскольку это оператор замыкания и до 10 выражение не дойдет
+// console.log(true && 'abc' && 10) // <-- 10, выведет последний элемент вырвженмя
+
+// console.log(10 || false)
+
+// замена двух операторов бинарными. Лучше использовать все же двойные, они читабельнее
+
+// let a = 10
+
+// a += 1 // было a = a + 1
+
+// console.log(a)
+
+// a *= 2 // a = a * 2
+
+// console.log(a)
+
+// a -= 5 // a = a - 5
+
+// console.log(a)
+
+// a /= 2 // a = a / 2
+
+// console.log(a)
+
+/** Определить выражение или инструкция
+ *  - выражение (expression)
+ * - инструкция (statement)
+ *  - выражение-инструкция (expression statement)
+ */
+
+// выражение — часть кода, которая вернет определенное значение
+// инструкция — выполняет определенные действия
+// выражение-инструкция — на отдельной строчке кода
+
+// expression statement
+// 15 
+
+// statement
+// const myObject = { // <-- сам объект это expression
+//     x: 10,
+//     y: true,
+// }
+
+// // expression statement
+// myObject.z = 'abc' // <-- expression
+
+// // expression statement
+// delete myObject.x
+
+// // statement
+// let newVariable
+
+// // expression statement
+// newVariable = 30 + 5 // <-- expression
+
+// // expression statement
+// console.log(newVariable) 
+// /**             ^
+//  *          expression        
+//  */
+
+// // statement
+// if (newVariable > 10) {
+//     /**   ^
+//      *   expression
+//      */
+
+//     // expression statement
+//     console.log(`${newVariable} more than 10`) // <-- newVariable is expression too
+//      /**        _____________________________
+//       *                        ^
+//      *                     expression
+//      */
+// }
+
+// здесь вызываются на самом деле две функции
+// function fn() {
+//     console.log('привет из функции fn') // <-- первая
+
+//     return function (a) { //   < -- вторая анонимная вызывается в первой уже с параметром
+//         console.log(a)
+//     }
+// }
+
+// fn()(true) // <-- вызываются обе функции, вторая с аргументом
+
+// // сначала в выводе видим результат первой функции, затем второй
+// fn()('abc') // <-- передать можно любой аргумент
+
+// let arr = [1, 2] 
+
+// arr.push(3)
+
+// console.log(arr)
+
+// arr = [1, 2, 3, 4]
+
+// console.log(arr)
+
+// let myFavoritAnimal = 'Monkey'
+
+// console.log(myFavoritAnimal)
+
+// myFavoritAnimal = 'cat'
+
+// console.log(myFavoritAnimal)
+
+// строгий режим 'use strict'
+
+
+// 'use strict'
+// function myFunction() {
+//    let a = 2
+//    console.log(a) // <-- добавил эту строчку для вывода в консоль
+//     return a
+    // }
+
+// myFunction()
+
+// колбэк функция
+
+// setTimeout(function myFn() { // <-- здесь ошибка в том, что имя функции, myFn,  не нужно
+//     console.log('greetings from myFn')
+// }, 2000)
+
+// myFn() // <-- такой вызов ошибка, поскольку функция объявлялась внутри функции
+
+// как исправить задачу выше ^. Просто убираем имя, myFn, и вывод вне колбэк функции 
+// setTimeout(function () { // <-- убрали myFn
+//     console.log('greetings from myFn')
+// }, 2000)
+// // <-- здесь убрали вот это myFn()
+
+// интервалы и Таймауты
+
+// в этой части мы выводим сообщение + 1 в консоль с интервалом
+let i = 1 // <-- переменную в глобальной области видимости
+
+const messageIntervalId = setInterval(() => { // <-- переменная, чтобы затем использовать ее аргументом в clearInterval
+    console.log('сообщение номер  ' + i) // <-- теперь у нас есть к ней доступ
+    i = i + 1 // <-- здесь показываем, с каким шагом увеличивать i
+}, 2000)
+
+setTimeout(() => clearInterval(messageIntervalId), 11000) // <-- в setTimeout первым аргументом передаем clearInterval, вторым время
