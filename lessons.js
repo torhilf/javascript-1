@@ -94,11 +94,11 @@ console.log(helWorld2())
  */
 
 /*
-const myMinus = (first, second) => {
+const myminus = (first, second) => {
     return first - second
 }
 
-console.log(myMinus(10, 2))
+console.log(myminus(10, 2))
 */
 
 /* callback функция с таймером
@@ -232,19 +232,19 @@ console.log(firstArray)
 
 const changeArray = ['abc', 12, null, false]
 
-changeArray.forEach((element) => {
-    console.log(element)
+changeArray.forEach((key    ) => {
+    console.log(key )
 });
 
 // еще вариант
 
 const myArray = ['abc', true, 200]
 
-myArray.forEach((element) => console.log(element))
+myArray.forEach((key    ) => console.log(key    ))
 
 */
 
-/* добавление элемента в массив при помощи push
+/* добавление элемента в массив при помощи push (добавляет в конец массива)
 
 const plusArray = [12, 'abc', null]
 
@@ -467,11 +467,137 @@ console.log(currentDateInMs)
 // интервалы и Таймауты
 
 // в этой части мы выводим сообщение + 1 в консоль с интервалом
-let i = 1 // <-- переменную в глобальной области видимости
+// let i = 1 // <-- переменную в глобальной области видимости
 
-const messageIntervalId = setInterval(() => { // <-- переменная, чтобы затем использовать ее аргументом в clearInterval
-    console.log('сообщение номер  ' + i) // <-- теперь у нас есть к ней доступ
-    i = i + 1 // <-- здесь показываем, с каким шагом увеличивать i
-}, 2000)
+// const messageIntervalId = setInterval(() => { // <-- переменная, чтобы затем использовать ее аргументом в clearInterval
+//     console.log('сообщение номер  ' + i) // <-- теперь у нас есть к ней доступ
+//     i = i + 1 // <-- здесь показываем, с каким шагом увеличивать i
+// }, 2000)
 
-setTimeout(() => clearInterval(messageIntervalId), 11000) // <-- в setTimeout первым аргументом передаем clearInterval, вторым время
+// setTimeout(() => clearInterval(messageIntervalId), 11000) // <-- в setTimeout первым аргументом передаем clearInterval, вторым время
+
+// добавление элементов в начало массива
+
+// const myArray = [true, null]
+
+// console.log(myArray.unshift(100, 'hello')) // <-- unshift добавляет в начало элементы, здесь сразу выводим длину
+
+// console.log(myArray)
+
+// // добавление элемента по определенному индексу. лучше так НЕ делать
+
+// const myArray = [1, 2]
+
+// myArray[10] = 'abc' // <-- просто добавляешь номер индекса, по которому вводишь новый элемент
+
+// console.log(myArray)
+
+// console.log(myArray.length)
+
+
+
+// создание объектов внутри массива, добавление объектов в массив
+
+// const cars = [ // <-- синтаксис для объектов внутри массива
+// {
+//     carBrand: 'bmw',
+//     carPrice: 15,
+//     isAvailableForSale: true,
+// },
+
+// {
+//     carBrand: 'honda',
+//     carPrice: 15,
+//     isAvailableForSale: true,
+// },
+
+// {
+//     carBrand: 'toyota',
+//     carPrice: 800,
+//     isAvailableForSale: false,
+// },
+
+// ]
+
+// const newCar = { // <-- присваиваем переменной новый объект
+//     carBrand: 'mercedes',
+//     carPrice: 89000,
+//     isAvailableForSale: false, 
+// }
+
+// cars.push(newCar) // <-- добавление нового объекта в массив
+
+// console.log(cars[1].carBrand) //<-- обращение к элементу в массиве по индексу
+
+// console.log(cars)
+
+// // итерация по свойствам объекта
+// const myObject = { // <-- присваиваем объект переменной
+//     key1: true,
+//     key2: 10,
+//     key3: 'abc',
+//     key4: null,
+//     key10: NaN
+// }
+
+// const objectKeys = Object.keys(myObject) // <-- конвертировали все свойства в объект, присвоили его значение переменной
+
+// objectKeys.forEach((key ) => { // <-- уже в массиве используем forEach для перебора всех элементов
+//     if (key  === 'key1' || key  === 'key3' || key === 'key10') // <-- колбэк функция с инструкцией
+//         console.log(myObject[key]) // <-- если условия выполнены, вывести это
+// } )
+
+
+// // Получение случайного целого числа в заданном интервале (мое решение)
+
+// const min = 1000;
+// const max = 9999;
+
+// const myNumbers = [2355, 7235, 8135, 1768, 2361, 8351];
+
+// // Функция для генерации случайного числа в заданном диапазоне
+// const getRandomNumber = (min, max) => {
+//     min = Math.ceil(min); // Выражение min = Math.ceil(min); округляет значение переменной min до ближайшего целого числа в сторону увеличения
+//     max = Math.floor(max); // max = Math.floor(max); округляет значение переменной max до ближайшего целого числа в сторону уменьшения
+//     return Math.floor(Math.random() * (max -min) + min);
+
+// }
+
+// console.log(getRandomNumber(min, max));
+
+// // Функция для генерации уникального случайного числа
+// const getUnicNumber = (min, max, existingNumbers) => { 
+//     let randomNumber;
+//     do {
+//         randomNumber = getRandomNumber(min, max);
+//     } while (existingNumbers.includes(randomNumber)); // Повторять, пока число уже существует в массиве
+//     return randomNumber;
+// }
+
+// // Генерируем уникальное число
+// const uniqueNumber = getUnicNumber(min, max, myNumbers);
+// console.log(uniqueNumber);
+
+
+// Получение случайного целого числа в заданном интервале (решение учителя)
+
+const MIN = 1000;
+const MAX = 9999;
+
+const myNumbers = [2355, 7235, 8135, 1768, 2361, 8351];
+
+// функция генерирует случайное число в заданном диапазоне
+const randomNumber = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+};
+
+const addRandomNumberToArray = (arr, min, max) => {
+const newRandomNumber = randomNumber(min, max);
+const updatedArr = [...arr ];
+updatedArr.push(newRandomNumber);
+return updatedArr
+
+};
+
+const updatedArray = addRandomNumberToArray(myNumbers, MIN, MAX)
+console.log('NEW ARRAY', updatedArray);
