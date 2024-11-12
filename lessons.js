@@ -581,23 +581,137 @@ console.log(currentDateInMs)
 
 // Получение случайного целого числа в заданном интервале (решение учителя)
 
-const MIN = 1000;
-const MAX = 9999;
+// const MIN = 1000;
+// const MAX = 9999;
 
-const myNumbers = [2355, 7235, 8135, 1768, 2361, 8351];
+// const myNumbers = [2355, 7235, 8135, 1768, 2361, 8351];
 
-// функция генерирует случайное число в заданном диапазоне
-const randomNumber = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-};
+// // const myNumbers = [1, 3, 5, 7, 10]
 
-const addRandomNumberToArray = (arr, min, max) => {
-const newRandomNumber = randomNumber(min, max);
-const updatedArr = [...arr ];
-updatedArr.push(newRandomNumber);
-return updatedArr
+// // функция генерирует случайное число в заданном диапазоне
+// const randomNumber = (min, max) => {
+//     return Math.floor(Math.random() * (max - min + 1) + min)
+// };
 
-};
+// // функция добавляет рандомное число в массив
+// const addRandomNumberToArray = (arr, min, max) => {
+// let newRandomNumber // <-- объявляем переменную при помощи let
+// const updatedArr = [...arr ]; // <-- создаем копию массива
 
-const updatedArray = addRandomNumberToArray(myNumbers, MIN, MAX)
-console.log('NEW ARRAY', updatedArray);
+// do { // <-- добавляем цикл, выходим из него, как только находим число, которого нет в массиве
+//     newRandomNumber = randomNumber(min, max);  // <-- генерируем новое число внутри цикла
+//     console.log(newRandomNumber) // <-- показывает, сколько раз генерировалось число
+// } while(updatedArr.includes(newRandomNumber)) // <-- проверяем, есть ли такое число в массиве при помощи includes
+
+// updatedArr.push(newRandomNumber); // <-- добавляем новое уникальное число в новый массив
+
+// return updatedArr
+// };
+
+// const updatedArray = addRandomNumberToArray(myNumbers, MIN, MAX)
+// console.log('NEW ARRAY', updatedArray);
+// console.log('ORIGINAL ARRAY', myNumbers);
+
+
+// проверка того, что свойство является собственным свойством объекта
+// const myObject = {
+//     name: 'Kosta',
+//     age: 30,
+//     city: 'London',
+// };
+
+// Object.prototype.country = 'England'
+
+// for (let key in myObject) { // <-- в переменной key уже содержатся все названия собственных свойств объекта. цикл for in перебирает все свойства объекта, в том числе унаследованные
+//    if (myObject.hasOwnProperty(key)) //<-- если ключ (key) является не унаследованным свойством объекта myObject
+//     console.log(myObject[key]) // <-- то мы выводим значение key
+// };
+
+// тернарный оператор
+
+// я переписал эту функцию с if else на просто if
+
+// function isArrayEmpty(inputArray) {
+//     if (inputArray.length > 0) {
+//         return 'Array is not empty'
+//     } else {
+//         return 'Array is empty'
+//     }
+// }
+
+// console.log(isArrayEmpty([1, 3]))
+
+// на эту
+// const isArrayEmpty = (inputArray) => {
+//     if (inputArray.length > 0) {
+//         return 'Array is not empty'
+//     }
+
+//     // if (inputArray.length <= 0) { // второй if тут не нужен. 
+//         return 'Array is empty' // эта строка сработает, если все предыдущие инструкции ложны
+// }
+// console.log(isArrayEmpty([1, 3]))
+
+// console.log(isArrayEmpty([ ]))
+
+/** правильное решение с тернарным оператором
+ * выражение ниже вернет сразу результат либо __^___      либо ___^____
+ *  return inputArray.length > 0 ? 'Array is not empty' : 'Array is empty'
+}
+ */
+
+// const isArrayEmpty = (inputArray) => {
+//   return inputArray.length > 0 // явный возврат результата
+//   ? 'Array is not empty' 
+//   : 'Array is empty'
+// }
+
+//     console.log(isArrayEmpty([1, 3]))
+//     console.log(isArrayEmpty([ ]))
+// с неявным возвратом результата
+// const isArrayEmpty = (inputArray) => 
+//     inputArray.length > 0 // 
+//     ? 'Array is not empty' 
+//     : 'Array is empty'
+  
+// перебор элементов массива с forEach
+// const myCities = ['London', 'new york', 'singapur']
+
+// const cityInfo = (city, index) => 
+//     `${city} is at the index ${index} in myCities array`
+
+// myCities.forEach((city, index) => console.log(cityInfo(city, index)))
+
+const postsJSON = [
+    '{"postId": 1355, "commenstQuantity":5}',
+    '{"postId": 5131, "commenstQuantity":13}',
+    '{"postId": 6134, "commenstQuantity":2}',
+    '{"postId": 2351, "commenstQuantity":8}',
+]
+
+/**
+ * конвертация массива объектов JSON
+ * в массив объектов JavaScript
+ * для каждого элемента вызвана колбек функция
+ * вот эта (post) => JSON.parse(post)
+ * в ней мы вызывали метод parse объекта JSON
+ * неявно возвращали объект JS в новый массив
+ * при помощи метода map?
+ * map не меняет массив, а возвращает новый
+ * после конвертации postsJS — массив объектов
+ * мы можем получать доступ к элементам и свойствам этого объекта
+ */
+
+// // OPTION 1
+// 
+const postsJS = postsJSON.map((post) => JSON.parse(post))
+
+console.log(postsJS[1].postId) // выводит postId второго объекта в массиве
+console.log(postsJS[postsJS.length - 1].commenstQuantity)
+
+// OPTION 2
+// const postsJS = postsJSON.map(JSON.parse)
+// console.log(postsJS)
+
+// console.log(postsJS[1].postId) // выводит postsI второго объекта в массиве
+// console.log(postsJS[postsJS.length - 2].commenstQuantity) // доступ к значению свойства commenstQuantity по его индексу в массиве
