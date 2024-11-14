@@ -682,32 +682,32 @@ console.log(currentDateInMs)
 
 // myCities.forEach((city, index) => console.log(cityInfo(city, index)))
 
-const postsJSON = [
-    '{"postId": 1355, "commenstQuantity":5}',
-    '{"postId": 5131, "commenstQuantity":13}',
-    '{"postId": 6134, "commenstQuantity":2}',
-    '{"postId": 2351, "commenstQuantity":8}',
-]
+// const postsJSON = [
+//     '{"postId": 1355, "commenstQuantity":5}',
+//     '{"postId": 5131, "commenstQuantity":13}',
+//     '{"postId": 6134, "commenstQuantity":2}',
+//     '{"postId": 2351, "commenstQuantity":8}',
+// ]
 
-/**
- * конвертация массива объектов JSON
- * в массив объектов JavaScript
- * для каждого элемента вызвана колбек функция
- * вот эта (post) => JSON.parse(post)
- * в ней мы вызывали метод parse объекта JSON
- * неявно возвращали объект JS в новый массив
- * при помощи метода map?
- * map не меняет массив, а возвращает новый
- * после конвертации postsJS — массив объектов
- * мы можем получать доступ к элементам и свойствам этого объекта
- */
+// /**
+//  * конвертация массива объектов JSON
+//  * в массив объектов JavaScript
+//  * для каждого элемента вызвана колбек функция
+//  * вот эта (post) => JSON.parse(post)
+//  * в ней мы вызывали метод parse объекта JSON
+//  * неявно возвращали объект JS в новый массив
+//  * при помощи метода map?
+//  * map не меняет массив, а возвращает новый
+//  * после конвертации postsJS — массив объектов
+//  * мы можем получать доступ к элементам и свойствам этого объекта
+//  */
 
-// // OPTION 1
-// 
-const postsJS = postsJSON.map((post) => JSON.parse(post))
+// // // OPTION 1
+// // 
+// const postsJS = postsJSON.map((post) => JSON.parse(post)) // конвертация JSON-объектов в JS-массив. Присваивание этого массива переменной. Дальше работаем уже с ней, как с массивом
 
-console.log(postsJS[1].postId) // выводит postId второго объекта в массиве
-console.log(postsJS[postsJS.length - 1].commenstQuantity)
+// console.log(postsJS[1].postId) // выводит postId второго объекта в массиве
+// console.log(postsJS[postsJS.length - 1].commenstQuantity) // везде работаем уже с массивом postsJS
 
 // OPTION 2
 // const postsJS = postsJSON.map(JSON.parse)
@@ -715,3 +715,15 @@ console.log(postsJS[postsJS.length - 1].commenstQuantity)
 
 // console.log(postsJS[1].postId) // выводит postsI второго объекта в массиве
 // console.log(postsJS[postsJS.length - 2].commenstQuantity) // доступ к значению свойства commenstQuantity по его индексу в массиве
+
+const posts = [
+    { postId: 1355, commentsQuantity: 5},
+    { postId: 5131, commentsQuantity: 13},
+    { postId: 6134, commentsQuantity: 2},
+]
+
+
+
+// console.log(findPostById(6134, posts))
+
+// console.log(findPostById(4511, posts))
